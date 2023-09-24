@@ -1,0 +1,23 @@
+Igen, lehetséges php nélkül, kizárólag pythonnal weboldalt fejleszteni. Ehhez a Python webfejlesztési keretrendszereit használhatjuk, például a Flask-et vagy a Django-t.
+
+A Flask egy mikroframework, amely nagyon egyszerű és könnyen tanulható. A Django egy teljes körű keretrendszer, amely számos funkciót és lehetőséget kínál.
+
+A Python webfejlesztés előnyei a következők:
+
+    Könnyebb megtanulni és használni, mint a PHP.
+    Jobb biztonságot kínál, mint a PHP.
+    Többoldalúbb, mint a PHP.
+
+A Python webfejlesztés hátrányai a következők:
+
+    Nem olyan népszerű, mint a PHP.
+    Kevesebb erőforrás áll rendelkezésre a Python webfejlesztéshez, mint a PHP-hoz.
+
+Összességében elmondható, hogy a Python egy jó választás a webfejlesztéshez, ha egyszerű és biztonságos weboldalt szeretnénk készíteni.
+
+Íme néhány példa arra, hogy hogyan lehet php nélkül, kizárólag pythonnal weboldalt fejleszteni:
+
+    Egyszerű weboldal létrehozása: A Flask-et vagy a Django-t használhatjuk egy egyszerű weboldal létrehozására, amely HTML, CSS és JavaScript-ből áll.
+    Adatbázis-alapú weboldal létrehozása: A Flask-et vagy a Django-t használhatjuk egy adatbázis-alapú weboldal létrehozására, amely MySQL, PostgreSQL vagy más adatbázis-rendszert használ.
+    REST API létrehozása: A Flask-et vagy a Django-t használhatjuk egy REST API létrehozására, amelyet más alkalmazások használhatnak.
+
