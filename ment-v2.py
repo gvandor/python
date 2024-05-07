@@ -1,4 +1,14 @@
 #!/usr/bin/python3
+# hibás sorok terminál hibaüzenet:  File "/mnt/adat/Documents/Github/gvandor/python/./ment-v2.py", line 61, in <module>
+#    main()
+#  File "/mnt/adat/Documents/Github/gvandor/python/./ment-v2.py", line #42, in main
+ #   max_number = get_max_number(path)
+ #                ^^^^^^^^^^^^^^^^^^^^
+ # File "/mnt/adat/Documents/Github/gvandor/python/./ment-v2.py", line 32, in get_max_number
+ #   number = int(filename[9:])
+ #            ^^^^^^^^^^^^^^^^^
+#ValueError: invalid literal for int() with base 10: '_21'
+
 # Ez a kód a következőképpen működik:
 # A get_max_number() függvény megkeresi a megadott könyvtárban a legnagyobb számot.
 # A main() függvény először megkeresi a legnagyobb számot. Ezután létrehoz egy új könyvtárat a következő formátumban: "Documents_<szám>". Ezután a könyvtárba lép, és elmenti az adatokat. Végül létrehoz egy ellenőrző összeget a tömörített fájlhoz.

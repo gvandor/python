@@ -1,0 +1,275 @@
+: mese="Tükröm tükröm mond meg nékem..."
+
+In [2]: len(mese)
+Out[2]: 31
+
+In [3]: mese.upper()
+Out[3]: 'TÜKRÖM TÜKRÖM MOND MEG NÉKEM...'
+
+In [4]: mese.lower()
+Out[4]: 'tükröm tükröm mond meg nékem...'
+
+In [5]: m2= mese.upper()
+
+In [6]: m2
+Out[6]: 'TÜKRÖM TÜKRÖM MOND MEG NÉKEM...'
+
+In [7]: m2.count("RÖM")
+Out[7]: 2
+
+In [8]: mese.upper().count("RÖM")
+Out[8]: 2
+
+In [9]: mese
+Out[9]: 'Tükröm tükröm mond meg nékem...'
+Figyeljük meg, hogy a [2]-ben kiírt hosszba a szóközök is beleszámítanak. Az egyik metódus minden karaktert nagybetűssé formál, a másik kisbetűssé. A count() metódus megszámolja az argumentumként megadott karakterlánc előfordulását abban az objektumban, amihez kapcsolva meghívták. Az elvégzett átalakítások nem módosították az eredeti karakterláncot, hanem abból minden esetben egy újabbat, egy transzformáltat állították elő.
+Az [5]-ös kódban elmentettük az új láncot egy változóba, majd megszámoltattuk benne a “RÖM” karakterlánc előfordulását ([7]).
+A [8]-as kódban mindezt egy lépésben tettük meg, összefűzve a különböző metódusok hívását; 
+************************************
+
+ [10]:  d= input("Kérek egy számot: ")
+Kérek egy számot: 32
+
+In [11]: d
+Out[11]: '32'
+
+In [12]: 1+d
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-12-d8a7ff1ace50> in <module>
+----> 1 1+d
+
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+In [13]: type(d)
+Out[13]: str
+
+In [14]: d= int(d)
+
+In [15]: type(d)
+#########################################
+#!/usr/bin/env python3.8
+# if_példa.py
+
+esik= False
+a= 0
+
+if esik:
+    # a blokk1 kezdete
+    print(" Esik az eső")
+    a= a-1
+    # a blokk1 vége
+else:
+    # a blokk2 kezdete
+    print(" Nem esik az eső")
+    a= a+1
+    # a blokk2 vége
+
+"""
+Bármelyik fenti blokk végrehajtása után
+itt folytatódik a végrehajtás
+"""
+print(" a=", a)
+**********************************
+In [1]: def beolvas():
+   ...:
+   ...:     s= input("Kapok valamit? ")
+   ...:     if s:
+   ...:         print(s, "<--- Köszi.")
+   ...:     else:
+   ...:         print("Köszi a nagy semmit!")
+   ...:
+
+In [2]: beolvas()
+Kapok valamit? 10
+10 <--- Köszi.
+
+In [3]: beolvas()
+Kapok valamit? macskát
+macskát <--- Köszi.
+
+In [4]: beolvas()
+Kapok valamit? Nem
+Nem <--- Köszi.
+
+In [5]: beolvas()
+Kapok valamit?
+Köszi a nagy semmit!
+Bármely két objektum “egyenlőségét” megvizsgálhatjuk, aminek a számok körében és a karakterláncoknál nyilvánvaló a jelentése, de egyéb objektumoknál vagy nem azonos típusúaknál ez nem ilyen egyszerű, ekkor meg kell mondanunk mit is értünk egyenlőség alatt. Még komplikáltabb a helyzet, ha azt szeretnénk eldönteni, hogy két objektum közül melyik a kisebb. Ezekre a problémákra a későbbiekben megfelelő válaszokat tudunk majd adni.
+
+Az összehasonlító operátorok felsorolása:
+
+`==`, `!=`  egyenlő, nem egyenlő
+`<` , `>`   kisebb, nagyobb
+####################################x
+[1]: s= "Balaton"
+
+In [2]: s[0]
+Out[2]: 'B'
+
+In [3]: s[4]
+Out[3]: 't'
+
+In [4]: hossz= len(s)
+
+In [5]: hossz
+Out[5]: 7
+
+In [6]: s[6]
+Out[6]: 'n'
+
+In [7]: s[hossz-1]
+Out[7]: 'n'
+
+In [8]: s[-1]
+Out[8]: 'n'
+
+In [9]: s[-2]
+Out[9]: 'o'
+
+In [10]: s[-hossz]
+Out[10]: 'B'
+
+In [11]: s[10]
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-11-34c622ab6870> in <module>
+----> 1 s[10]
+
+IndexError: string index out of range
+
+In [12]: e1= s[0]
+
+In [13]: e1
+Out[13]: 'B'
+
+In [14]: print(e1,s[1])
+B a
+A szögletes zárójelben nemcsak egész számot, hanem olyan kifejezést is megadhatunk, ami ilyet eredményez, mint ahogy azt a [7]-es és [10]-es kódban tettük. A [11]-ben “túlcímeztük” a karakterláncot, olyan indexet adva meg, ameddig nem is terjed ki az objektum.
+A kinyert elemet eltárolhatjuk egy változóban, vagy a print()-nek átadhatjuk argumentumként.
+
+Bejárás “egyszerűen”
+A konténerek kapcsán “bejárásról” szóltunk, de a fenti példákban csak egy-egy elemet kérdeztünk le. Az “igazi” bejáráshoz (iteráláshoz) szükségünk van egy új nyelvi szerkezetre, amellyel egyelőre csak futólag ismerkedünk meg.
+
+Tekintsük tehát meg a for e in obj: ún. ciklusszervező kódot, ahol az obj helyébe a bejárandó objektumot kell helyezni. Az e az ún. ciklusváltozó, ami majd a ciklus minden soron következő végrehajtásakor az objektum következő elemével fog megegyezni (pontosabban arra fog mutatni). Az e elnevezés nem kötött, más nevet is adhatunk a változónak. Az utasítást egy kettőspont zárja, ami jelzi, hogy a következő sorban egy új utasításblokkot kell kezdeni. Nézzünk egy példát, amiben egy karakterláncot járunk be, kiírva az egyes karaktereket:
+
+In [1]: s= "Balaton"
+
+In [2]: for kar in s:
+   ...:     print(kar)
+   ...: print("Itt a vége.")
+B
+a
+l
+a
+t
+o
+n
+Itt a vége.
+A zárómondatot kiíró print() már nem része az utasításblokknak, ezért a for szóval azonos behúzási szinten kell kezdeni az írását. (Egy programfájlba írva a fentieket, a jobb olvashatóság kedvéért az utasításblokk és az azt követő print() között érdemes hagyni egy üres sort. Interaktív módban az üres sor hatására azonnal végrehajtódik az utasításblokk.)
+###########################
+[1]: s= "Balaton"
+
+In [2]: for kar in s:
+   ...:     if kar == "a":
+   ...:         print("aaa")
+   ...:     else:
+   ...:         print(kar.upper())
+   ...:
+B
+aaa
+L
+aaa
+T
+O
+N
+A [2]-es sort így is írhattuk volna: for kar in "Balaton":. Ilyenkor, amikor a bejárandó objektumhoz nem rendelünk változót, az értelmező egy ideiglenes objektumot hoz létre, amit felhasznál, majd megszüntet. Egy ilyen átmenetileg létező objektumot a bejáró szerkezetet elhagyva már nem tudunk elérni, mert lesz rá hivatkozás (rámutató változó).
+
+A bejárószerkezettel nem szükséges az objektum utolsó eleméig elmennünk, a break utasítással kiléphetünk a ciklusból, amikor nekünk tetszik:
+
+In [1]: for k in "Python":
+   ...:
+   ...:     if k == "t":
+   ...:         break
+   ...:     print(k)
+   ...:
+P
+y
+######################################
+n [1]: r= range(5)
+
+In [2]: for i in r:
+   ...:     print(i)
+   ...:
+0
+1
+2
+3
+4
+
+In [3]: for i in range(-2,5):
+   ...:     print(i)
+   ...:
+-2
+-1
+#######################################
+n [1]: s= "Balaton"
+
+In [2]: for i in range( len(s) ):
+   ...:     print( s[i] )
+   ...:
+B
+a
+l
+a
+t
+o
+n
+
+In [3]: for i in range(len(s)-1,-1,-1):
+    ...:     print(s[i])
+    ...:
+4]: for i in range(len(s)-1,-1,-1):
+   ...:     print(s[i].upper())
+   ...:
+N
+O
+T
+A
+L
+A
+B
+#################################################
+n [1]: s= "Balaton"
+
+In [2]: for i,e in enumerate(s):
+   ...:     print(i,"-->",e)
+   ...:
+0 --> B
+1 --> a
+2 --> l
+3 --> a
+4 --> t
+5 --> o
+6 --> n
+#########################################
+[1]: s= "Balaton"
+
+In [2]: it= iter(s)
+
+In [3]: type(it)
+Out[3]: str_iterator
+
+In [4]: next(it)
+Out[4]: 'B'
+
+In [5]: next(it)
+Out[5]: 'a'
+
+In [6]: for e in it:
+   ...:     print(e)
+   ...:
+l
+a
+t
+

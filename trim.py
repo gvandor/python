@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+print ("Ez gvandor python programja")
 import os
 os.system("sudo fstrim -v /")
 print ("root kész")
