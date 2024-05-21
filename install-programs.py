@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+#-*- coding:utf-8 -*-
 # Ez a szkript a következőképpen működik:
 # Először importálja a subprocess modult, amely lehetővé teszi a parancsok futtatását Pythonból.
 # Ezután létrehoz egy listát a megadott programokról.
