@@ -13,8 +13,9 @@ def ment():
         os.system("tar -czvf /mnt/adat/Adatmentes/Documents/Documents_31/documents_31.tgz /mnt/adat/Documents/*")
         os.system("clear")
         print("Ellenőrző összeg létrehozása sha256, mindjárt kész.")
-        os.system("sha256sum /mnt/adat/Adatmentes/Documents/Documents_31/documents_31.tgz > /mnt/adat/Adatmentes/Documents/Documents_31/CHECKSUM")
-        print("Adatmentés befejeződött, írd át hat helyen a szkriptben a számokat, majd írd át fent a komment szekcióban az utolsó mentés dátumát, számát végül a CHECKSUM fájlban törölni az elérési utat.")
+        os.system("cd /mnt/adat/Adatmentes/Documents/Documents_31")
+        os.system("sha256sum documents_31.tgz > CHECKSUM")
+        print("Adatmentés befejeződött, írd át öt helyen a szkriptben a számokat, majd írd át fent a komment szekcióban az utolsó mentés dátumát, számát.")
         
     else:
         print ("Azok az adatok, amiről nincs mentés, nem is fontosak! ")
