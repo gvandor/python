@@ -4,6 +4,7 @@
 # !!! minden mentéskor írd át a számot hat helyen
 # # Utolsó mentés:  2024 április 29. száma 30
 # Mivel a CD parancs nem működik, ezért mindenhol teljes elérési utat írtam.
+# most kipróbálom, hátha működik a cd.
 import os
 def ment():
     c= input("Biztos vagy benne, hogy adatmentést akarsz?, ha igen akkor adj egy karaktert majd nyomj entert, ha nem akkor csak entert ")
