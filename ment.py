@@ -9,12 +9,12 @@ import os
 def ment():
     c= input("Biztos vagy benne, hogy adatmentést akarsz?, ha igen akkor adj egy karaktert majd nyomj entert, ha nem akkor csak entert ")
     if c:
-        os.system("mkdir /mnt/adat/Adatmentes/Documents/Documents_31")
+        os.system("mkdir /home/$USER/Adat/Adatmentes/Documents/Documents_31")
         print ("Adatmentés folyamatban.")
-        os.system("tar -czvf /mnt/adat/Adatmentes/Documents/Documents_31/documents_31.tgz /mnt/adat/Documents/*")
+        os.system("tar -czvf /home/$USER/Adat/Adatmentes/Documents/Documents_31/documents_31.tgz /home/$USER/Adat/Documents/*")
         os.system("clear")
         print("Ellenőrző összeg létrehozása sha256, mindjárt kész.")
-        os.system("cd /mnt/adat/Adatmentes/Documents/Documents_31")
+        os.system("cd /home/$USER/Adat/Adatmentes/Documents/Documents_31")
         os.system("sha256sum documents_31.tgz > CHECKSUM")
         print("Adatmentés befejeződött, írd át öt helyen a szkriptben a számokat, majd írd át fent a komment szekcióban az utolsó mentés dátumát, számát.")
         
