@@ -16,7 +16,7 @@ def ment():
         print("Ellenőrző összeg létrehozása sha256, mindjárt kész.")
         os.system("cd /home/$USER/Adat/Adatmentes/Documents/Documents_31")
         os.system("sha256sum documents_31.tgz > CHECKSUM")
-        print("Adatmentés befejeződött, írd át öt helyen a szkriptben a számokat, majd írd át fent a komment szekcióban az utolsó mentés dátumát, számát.")
+        print("Adatmentés befejeződött, írd át hat helyen a szkriptben a számokat, majd írd át fent a komment szekcióban az utolsó mentés dátumát, számát.")
         
     else:
         print ("Azok az adatok, amiről nincs mentés, nem is fontosak! ")
