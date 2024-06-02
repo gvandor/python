@@ -1,39 +1,53 @@
 #!/usr/bin/python3
-#-*- coding:utf-8 -*-
-# program: ment.py
-# !!! minden mentéskor írd át a számot hat helyen
-# # Utolsó mentés:  2024 április 29. száma 30
-# Mivel a CD parancs nem működik, ezért mindenhol teljes elérési utat írtam.
-# most kipróbálom, hátha működik a cd.
 import os
-def ment():
-    c= input("Biztos vagy benne, hogy adatmentést akarsz?, ha igen akkor adj egy karaktert majd nyomj entert, ha nem akkor csak entert ")
-    if c:
-        os.system("mkdir /home/$USER/Adat/Adatmentes/Documents/Documents_31")
-        print ("Adatmentés folyamatban.")
-        os.system("tar -czvf /home/$USER/Adat/Adatmentes/Documents/Documents_31/documents_31.tgz /home/$USER/Adat/Documents/*")
-        os.system("clear")
-        print("Ellenőrző összeg létrehozása sha256, mindjárt kész.")
-        os.system("cd /home/$USER/Adat/Adatmentes/Documents/Documents_31")
-        os.system("sha256sum documents_31.tgz > CHECKSUM")
-        print("Adatmentés befejeződött, írd át hat helyen a szkriptben a számokat, majd írd át fent a komment szekcióban az utolsó mentés dátumát, számát.")
-        
-    else:
-        print ("Azok az adatok, amiről nincs mentés, nem is fontosak! ")
-ment()
 
+def get_max_number(path):
+    """
+    Megkeresi a megadott könyvtárban a legnagyobb számot.
 
+    Args:
+        path: A könyvtár elérési útja.
 
+    Returns:
+        A legnagyobb szám.
+    """
+    max_number = 0
+    for filename in os.listdir(path):
+        if filename.startswith("Documents_"):
+            try:
+                number = int(''.join(filter(str.isdigit, filename[10:])))
+                if number > max_number:
+                    max_number = number
+            except ValueError:
+                pass
+    return max_number
 
+def main():
+    """
+    A fő függvény.
+    """
+    path = "/home/gvandor/Adat/Adatmentes/Documents/"
+    max_number = get_max_number(path)
+    new_number = max_number + 1
 
+    # A könyvtár létrehozása
+    os.system("mkdir {}/Documents_{}".format(path, new_number))
 
+    # A könyvtárba lépés
+    os.chdir("{}/Documents_{}".format(path, new_number))
 
+    # Az adatok mentése
+    print ("Adatmentés folyamatban.")
+    os.system("tar -czvf documents_{}.tgz /home/gvandor/Adat/Documents/*".format(new_number))
 
+    # Az ellenőrző összeg létrehozása
+    os.system("clear")
+    print ("Ellenőrző összeg létrehozása sha256, mindjárt kész.")
+    os.system("sha256sum documents_{}.tgz > CHECKSUM".format(new_number))
 
-
-
-
-
+if __name__ == "__main__":
+    main()
+print ("Adatmentés kész, most jólesne egy kis barackpálinka.")
 
 
 

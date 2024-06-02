@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #-*- coding:utf-8 -*-
-print ("Hello Leonardo")
+print ("Python program vagyok")
 import os
 os.system("sudo ufw enable")
 # print ("Tűzfal aktív")
